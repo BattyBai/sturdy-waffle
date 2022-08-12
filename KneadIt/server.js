@@ -65,6 +65,19 @@ app.get('/', (req, res) => {
   })
 });
 
+// *******************************************
+// ************NEW/CREATE ROUTING*************
+// *******************************************
+app.get('/new', (req, res) => {
+  res.render('new.ejs')
+});
+
+app.post('/', (req, res) => {
+   Recipe.create(req.body, (error, createdTask) => {
+     res.redirect('/')
+   })
+ });
+
 //localhost:3000
 app.get('/' , (req, res) => {
   res.send('Hello World!');
