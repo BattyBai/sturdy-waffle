@@ -78,6 +78,49 @@ app.post('/', (req, res) => {
    })
  });
 
+// *******************************************
+// ***************SHOW ROUTING****************
+// *******************************************
+app.get('/:id', (req, res) => {
+  Recipe.findById(req.params.id, (error, foundRecipe) => {
+  res.render(
+      'show.ejs',
+      {
+      receipe:foundRecipe   
+      } 
+    )
+  })
+});
+
+// *******************************************
+// ************EDIT/UPDATE ROUTING*************
+// *******************************************
+app.get('/:id/edit', (req, res)=>{
+  Recipe.findById(req.params.id, (err, foundReceipe)=>{ 
+      res.render(
+      'edit.ejs',
+      {
+        receipe: foundReceipe
+      }
+    );
+  });
+});
+
+app.put('/:id', (req, res)=>{
+  Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+      res.redirect('/');
+  });
+});
+
+// *******************************************
+// ************DELETE ROUTING*****************
+// *******************************************
+app.delete('/tasks/:id', (req, res) => {
+  Recipe.findByIdAndRemove(req.params.id, (error, data) => {
+  res.redirect('/');
+  })
+});
+
 //localhost:3000
 app.get('/' , (req, res) => {
   res.send('Hello World!');

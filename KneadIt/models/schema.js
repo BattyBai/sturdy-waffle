@@ -10,7 +10,7 @@ const recipeSchema = new mongoose.Schema({
             typeOfFlour: String,
             amountOfFlour: Number
         },
-        salt: String,
+        salt: Number,
         yeast: {
             typeOfYeast: String,
             amountOfYeast: Number
@@ -21,7 +21,8 @@ const recipeSchema = new mongoose.Schema({
         },
         otherIngredients: [String],
         instructions: String
-    }
+    },
+img: String 
 });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
