@@ -4,9 +4,12 @@
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
+const Recipe = require('./models/schema.js');
 const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
+
+
 //___________________
 //Port
 //___________________
@@ -47,6 +50,21 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //___________________
 // Routes
 //___________________
+// *******************************************
+// *************INDEX ROUTING*****************
+// *******************************************
+app.get('/bread', (req, res) => {
+  Recipe.find({}, (err, allRecipes) => {
+    res.render(
+      'index.ejs',
+      {
+        recipe:allRecipes
+      
+      }
+    )
+  })
+});
+
 //localhost:3000
 app.get('/' , (req, res) => {
   res.send('Hello World!');
