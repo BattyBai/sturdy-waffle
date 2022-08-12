@@ -53,7 +53,7 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // *******************************************
 // *************INDEX ROUTING*****************
 // *******************************************
-app.get('/bread', (req, res) => {
+app.get('/', (req, res) => {
   Recipe.find({}, (err, allRecipes) => {
     res.render(
       'index.ejs',
