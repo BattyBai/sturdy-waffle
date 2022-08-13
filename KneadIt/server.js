@@ -53,7 +53,7 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // *******************************************
 // *************INDEX ROUTING*****************
 // *******************************************
-app.get('/', (req, res) => {
+app.get('/bread', (req, res) => {
   Recipe.find({}, (err, allRecipes) => {
     res.render(
       'index.ejs',
@@ -68,11 +68,11 @@ app.get('/', (req, res) => {
 // *******************************************
 // ************NEW/CREATE ROUTING*************
 // *******************************************
-app.get('/new', (req, res) => {
+app.get('/bread/new', (req, res) => {
   res.render('new.ejs')
 });
 
-app.post('/', (req, res) => {
+app.post('/bread', (req, res) => {
    Recipe.create(req.body, (error, createdTask) => {
      res.redirect('/')
    })
@@ -81,7 +81,7 @@ app.post('/', (req, res) => {
 // *******************************************
 // ***************SHOW ROUTING****************
 // *******************************************
-app.get('/:id', (req, res) => {
+app.get('/bread/:id', (req, res) => {
   Recipe.findById(req.params.id, (error, foundRecipe) => {
   res.render(
       'show.ejs',
@@ -96,17 +96,17 @@ app.get('/:id', (req, res) => {
 // ************EDIT/UPDATE ROUTING*************
 // *******************************************
 app.get('/:id/edit', (req, res)=>{
-  Recipe.findById(req.params.id, (err, foundReceipe)=>{ 
+  Recipe.findById(req.params.id, (err, foundRecipe)=>{ 
       res.render(
       'edit.ejs',
       {
-        recipe: foundReceipe
+        recipe: foundRecipe
       }
     );
   });
 });
 
-app.put('/:id', (req, res)=>{
+app.put('/bread/:id', (req, res)=>{
   Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
       res.redirect('/');
   });
@@ -115,14 +115,14 @@ app.put('/:id', (req, res)=>{
 // *******************************************
 // ************DELETE ROUTING*****************
 // *******************************************
-app.delete('/:id', (req, res) => {
+app.delete('/bread/:id', (req, res) => {
   Recipe.findByIdAndRemove(req.params.id, (error, data) => {
   res.redirect('/');
   })
 });
 
 //localhost:3000
-app.get('/' , (req, res) => {
+app.get('/bread' , (req, res) => {
   res.send('Hello World!');
 });
 
