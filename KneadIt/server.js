@@ -86,7 +86,7 @@ app.get('/:id', (req, res) => {
   res.render(
       'show.ejs',
       {
-      receipe:foundRecipe   
+      recipe:foundRecipe   
       } 
     )
   })
@@ -100,7 +100,7 @@ app.get('/:id/edit', (req, res)=>{
       res.render(
       'edit.ejs',
       {
-        receipe: foundReceipe
+        recipe: foundReceipe
       }
     );
   });
@@ -115,7 +115,7 @@ app.put('/:id', (req, res)=>{
 // *******************************************
 // ************DELETE ROUTING*****************
 // *******************************************
-app.delete('/tasks/:id', (req, res) => {
+app.delete('/:id', (req, res) => {
   Recipe.findByIdAndRemove(req.params.id, (error, data) => {
   res.redirect('/');
   })
