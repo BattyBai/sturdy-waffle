@@ -7,6 +7,26 @@
     <header>
         <%- include('partials/header'); %> 
     </header>
-    <div><h1>Hello!</h1></div>
+    <h1>Edit Page</h1>
+    <div class="container">
+        <h1>Update Recipe</h1>
+        <form action="/bread/<%=recipe.id%>?_method=PUT" method="POST">
+            <input type="text" placeholder="Bread Name" name="name"><br>
+            <input type="number" placeholder="Prep Time" name="prepTime"><br>
+            <input type="number" placeholder="Bake Time" name="bakeTime"/><br>
+            <input type="text" placeholder="Flour Type" name="ingredients.flour.typeOfFlour"/><br>
+            <input type="number" placeholder="Flour Amount (grams)" name="ingredients.flour.amountOfFlour"/><br>
+            <input type="number" placeholder="Amount of Salt (grams)" name="salt"/><br>
+            <input type="text" placeholder="Type of Yeast" name="ingredients.yeast.typeOfYeast"/><br>
+            <input type="number" placeholder="Amount of Yeast (grams)" name="ingredients.yeast.amountOfYeast"/><br>
+            <input type="text" placeholder="Type of Oil" name="ingredients.oil.typeOfOil"/><br>
+            <input type="number" placeholder="Amount of Oil (grams)" name="ingredients.oil.amountOfOil"/><br>
+            <input type="text" placeholder="Other Ingredients" name="otherIngredients"/><br>
+            <input type="text" placeholder="Please Input Instructions Here" name="instructions"/><br>
+            <input type="text" placeholder="Please Input Image URL" name="img"/><br>
+        </form>
+        <a class="button" href="/bread">Back To TaskApp</a>
+    </div> 
+</body>
 </body>
 </html>

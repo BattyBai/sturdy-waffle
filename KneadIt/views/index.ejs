@@ -7,19 +7,43 @@
     <header>
         <%- include('partials/header'); %> 
     </header>
-    <div class="card-deck">
-        <%  for (let i=0; i < recipe.length; i++) {%>
-        <div class="card">
-            <a href="/<%= recipe[i].id%> "><img class="card-img-top" src="<%=recipe[i].img %>" alt="Card image cap"></a>
-          <div class="card-body">
-            <h5 class="card-title"><%=recipe[i].name %></h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <main class="my-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5">
+            <h2 class="pt-5">We have it, you KneadIt!</h2>
+            <p class="mt-3">Your one-stop-shop for all the things bread! Browse, add, edit, remove, and rate all our user generated dough. </p>
+          </div>
+          <div class="col-md-7">
+            <img src="https://images.unsplash.com/photo-1599819055803-717bba43890f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" 
+            alt="" 
+            class="img-fluid">
           </div>
         </div>
-        <% } %> 
+        <div class="row">
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% for (let i =0; i < recipe.length; i++) { %> 
+            <div class="col">
+              <div class="card h-100">
+                <a href="/bread<%= recipe[i].id%> "><img src="<%=recipe[i].img %>" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                  <h5 class="card-title"><%=recipe[i].name%> </h5>
+                  <p class="card-text"><%=recipe[i].description%> </p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+              </div>
+            </div>
+            <% } %> 
+          </div>
+        </div>
       </div>
+    </main>
 
-</body>
+        
+
+    <%- include('partials/head'); %> 
+
 </body>
 </html>

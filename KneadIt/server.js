@@ -73,8 +73,8 @@ app.get('/bread/new', (req, res) => {
 });
 
 app.post('/bread', (req, res) => {
-   Recipe.create(req.body, (error, createdTask) => {
-     res.redirect('/')
+   Recipe.create(req.body, (error, createdRecipe) => {
+     res.redirect('/bread')
    })
  });
 
@@ -117,7 +117,7 @@ app.put('/bread/:id', (req, res)=>{
 // *******************************************
 app.delete('/bread/:id', (req, res) => {
   Recipe.findByIdAndRemove(req.params.id, (error, data) => {
-  res.redirect('/');
+  res.redirect('/bread');
   })
 });
 
