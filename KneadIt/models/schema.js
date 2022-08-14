@@ -22,7 +22,9 @@ const recipeSchema = new mongoose.Schema({
         otherIngredients: [String],
         instructions: String
     },
-        img: String 
+        img: String,
+        dairyFree: Boolean,
+        glutenFree: Boolean
 });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
