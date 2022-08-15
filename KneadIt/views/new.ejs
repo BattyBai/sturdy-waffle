@@ -13,7 +13,7 @@
                 <div class="col-md-5">
                     <img class="vh-100"  src="https://images.unsplash.com/photo-1590394017390-add3e9922c35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80" class="img-fluid" alt="baking_surface">
                 </div>
-                <div class="col-md-7 my-5 text-center">
+                <div class="col-md-7 my-4 text-center">
                     <h1 class="mb-5">Add a new Knead here!</h1>
                     <form action="/bread" method="POST">
                         <div class="mb-3">
@@ -104,9 +104,13 @@
                                 <textarea class="form-control" placeholder="Additional Ingredients (seperate by comma)" name="otherIngrdients" rows="1"></textarea>
                               </div>
                         </div>
-                        <div>
-                            <input class="form-control form-control-lg" type="text" name="img"  placeholder="Image URL here" aria-label=".form-control-lg example">
+                        <div class="mb-3">
+                            <input class="form-control form-control" type="text" name="img"  placeholder="Image URL here" aria-label=".form-control-lg example">
                         </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" placeholder="Input baking instructions here (text field may be extended)" name="instructions" rows="3"></textarea>
+                          </div>
+                          <input type="submit"  class="btn btn-outline-primary" value="Submit Recipe"/>
                     </form>
                 </div>
             </div>
@@ -115,15 +119,3 @@
     <%- include('partials/body'); %>
 </body>
 </html>
-
-
-
-
-
-
-<form action="/bread" method="POST">
-
-    <input type="text" placeholder="Please Input Instructions Here" name="instructions"/><br>
-
-    <input type="submit" value="Create New Task"/>
-</form>
