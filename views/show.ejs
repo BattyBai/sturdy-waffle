@@ -7,18 +7,18 @@
     <header>
         <%- include('partials/header'); %> 
     </header>
-    <div class="container">
+    <div class="container-xl">
         <div class="row">
-            <div class="col-md-6"></div>
-                <img src="<%= recipe.img%> " alt="">
-                <p><%= recipe.prepTime %> </p>
-                <p><%= recipe.bakeTime %> </p>
-            <div class="col-md-6"> 
-                <p><%= recipe.ingredients %> </p>
-                <p><%= recipe.instructions %> </p>
-                <p></p>
+            <div class="col-12">
+                <h1 class="display-4" style="background-color: rgb(113, 158, 113); color: azure;"><%= recipe.name %>
             </div>
+            <div class="row row-cols-0">
+                <div class="col-6"style="background-color: rgb(113, 158, 113); color: azure;">test</div>
+                <div class="col-6" style="background-color: rgb(113, 158, 113); color: azure;">testie</div>
+            </div>
+            
         </div>
+
     </div>
     <%- include('partials/body'); %>     
 </body>

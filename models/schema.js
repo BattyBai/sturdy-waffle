@@ -19,6 +19,9 @@ const recipeSchema = new mongoose.Schema({
             typeOfOil: String,
             amountOfOil: Number
         },
+        sugar: Number,
+        water: Number,
+        milk_msub: Number,
         otherIngredients: [String],
         instructions: String
     },
