@@ -8,7 +8,7 @@
         <%- include('partials/header'); %> 
     </header>
     <main class="mt-3">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-md-5">
                     <img class="vh-100"  src="https://images.unsplash.com/photo-1590394017390-add3e9922c35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80" class="img-fluid" alt="baking_surface">
@@ -27,7 +27,7 @@
                               <input type="number" class="form-control" placeholder="Bake Time" aria-label="Last name" name="bakeTime">
                             </div>
                         </div>
-                        <h5 class="text-center mt-5 mb-4">Ingredients</h5>
+                        <h5 class="text-center mt-4 mb-4">Ingredients</h5>
                         <div class="row g-3">
                             <div class="col-8">
                                 <label for="flour" class="text-left form-label">Flour</label>
@@ -85,21 +85,27 @@
                             </div>
                         </div>
                         <div class="row g-3 mt-3">
-                            <div class="col-4">
+                            <div class="col-3">
                               <input type="number" class="form-control" placeholder="Salt (grams)" aria-label="First name" name="salt">
                             </div>
-                            <div class="col-4">
+                            <div class="col-2">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="text" id="flexCheckGluten" name="glutenFree">
                                     <label class="form-check-label" for="flexCheckGluten">Gluten Free</label>
                                   </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-2">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="text" id="flexCheckDairy" name="dairyFree">
                                     <label class="form-check-label" for="flexCheckDairy">Dairy Free</label>
                                   </div>
                             </div>
+                            <div class=" col-5 mb-3">
+                                <textarea class="form-control" placeholder="Additional Ingredients (seperate by comma)" name="otherIngrdients" rows="1"></textarea>
+                              </div>
+                        </div>
+                        <div>
+                            <input class="form-control form-control-lg" type="text" name="img"  placeholder="Image URL here" aria-label=".form-control-lg example">
                         </div>
                     </form>
                 </div>
@@ -116,8 +122,8 @@
 
 
 <form action="/bread" method="POST">
-    <input type="text" placeholder="Other Ingredients" name="otherIngredients"/><br>
+
     <input type="text" placeholder="Please Input Instructions Here" name="instructions"/><br>
-    <input type="text" placeholder="Please Input Image URL" name="img"/><br>
+
     <input type="submit" value="Create New Task"/>
 </form>
