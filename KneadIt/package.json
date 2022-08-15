@@ -4,7 +4,7 @@
   "engines": {
     "node": "16.15.1"
   },
-  "description": "Personal GA-SEIR Zoidberg Repo",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
