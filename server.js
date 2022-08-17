@@ -73,9 +73,19 @@ app.get('/bread/new', (req, res) => {
 });
 
 app.post('/bread', (req, res) => {
-   Recipe.create(req.body, (error, createdRecipe) => {
+  if(req.body.dairyFree === 'on'){
+    req.body.dairyFree = true;
+} else {
+    req.body.dairyFree = false;
+};
+  if(req.body.glutenFree === 'on'){
+    req.body.glutenFree = true;
+  } else {
+    req.body.glutenFree = false;
+  };
+  Recipe.create(req.body, (error, createdRecipe) => {
      res.redirect('/bread')
-   })
+    })
  });
 
 // *******************************************

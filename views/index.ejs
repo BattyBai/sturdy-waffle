@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('partials/head'); %> 
-    <link rel="stylesheet" href="sturdy-waffles/stylesheet.css">
+    <link rel="stylesheet" href="/css/stylesheet.css">
 </head>
 <body>
     <header>
@@ -26,18 +26,19 @@
           <div class="row row-cols-1 row-cols-md-3 g-4">
             <% for (let i =0; i < recipe.length; i++) { %> 
             <div class="col">
-              <div class="card">
+              <div class="card h-100" stlye="width: 20rem;">
                 <a href="/bread/<%=recipe[i].id%> ">
-                  <div class="ratio ratio-1x1"><img src="<%=recipe[i].img %>" class="card-img-top" alt="..."></div>
+                  <div class="ratio ratio-21x9">
+                    <img src="<%=recipe[i].img %>" class="card-img-top" alt="...">
+                  </div>
                 </a>
                 <div class="card-body">
                   <h5 class="card-title"><%=recipe[i].name%> </h5>
-                  <p class="card-text"><%=recipe[i].description%> </p>
+                  <p class="card-text">Total Time: <%=recipe[i].prepTime+recipe[i].bakeTime%> mins</p>
                 </div>
                 <div class="text-center">
                   <a href="/bread/<%=recipe[i].id%>"><button type="button" class="btn btn-outline-secondary">View Recipe</button></a>
                 </div>
-
               </div>
             </div>
             <% } %> 

@@ -6,7 +6,7 @@ const recipeSchema = new mongoose.Schema({
     prepTime: {type: Number, required: true},
     bakeTime: {type: Number, required: true},
     ingredients: {
-        flour: {
+        flour:  {
             typeOfFlour: String,
             amountOfFlour: Number
         },
@@ -23,11 +23,11 @@ const recipeSchema = new mongoose.Schema({
         water: Number,
         milk_msub: Number,
         otherIngredients: [String],
-        instructions: String
     },
-        img: String,
-        dairyFree: Boolean,
-        glutenFree: Boolean
+    instructions: String,
+    img: String,
+    dairyFree: Boolean,
+    glutenFree: Boolean
 });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);

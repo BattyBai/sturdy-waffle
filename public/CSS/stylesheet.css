@@ -1,0 +1,15 @@
+.card-img-top {
+    width:100%;
+    object-fit: cover;
+}
+
+#showImage {
+    object-fit: cover;
+    /* width: 100vw; */
+    overflow: hidden;
+    
+}
+
+/* #showWindow{
+    height: 20%
+} */

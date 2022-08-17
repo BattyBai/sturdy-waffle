@@ -33,16 +33,15 @@
                                 <label for="flour" class="text-left form-label">Flour</label>
                                 <select class="form-select" id="flour" aria-label="Default select example" name="ingredients.flour.typeOfFlour">
                                     <option selected>Select type of flour</option>
-                                    <option value="1">All Purpose</option>
-                                    <option value="2">Bread</option>
-                                    <option value="3">Whole Wheat</option>
-                                    <option value="4">Self Rising</option>
-                                    <option value="5">Cake</option>
-                                    <option value="6">Self Rising</option>
-                                    <option value="7">00 Tipo</option>
-                                    <option value="8">Almond</option>
-                                    <option value="9">Coconut</option>
-                                    <option value="10">Oat</option>
+                                    <option text="All purpose">All Purpose</option>
+                                    <option text="Bread">Bread</option>
+                                    <option text="Whole wheat">Whole Wheat</option>
+                                    <option text="Self rising">Self Rising</option>
+                                    <option text="Cake">Cake</option>
+                                    <option text="00 Tipo">00 Tipo</option>
+                                    <option text="Almond">Almond</option>
+                                    <option text="Coconut">Coconut</option>
+                                    <option text="Oat">Oat</option>
                                   </select>
                             </div>
                             <div class="col-4 mt-5">
@@ -54,12 +53,12 @@
                                 <label for="yeast" class="form-label">Yeast</label>
                                 <select class="form-select" id="yeast" aria-label="Default select example" name="ingredients.yeast.typeOfYeast">
                                     <option selected>Select type of yeast</option>
-                                    <option value="1">Instant</option>
-                                    <option value="2">Active Dry (Traditional)</option>
-                                    <option value="3">Wild/Natural</option>
-                                    <option value="4">Rapid Rise</option>
-                                    <option value="5">"Pizza" Yeast</option>
-                                    <option value="6">Fresh</option>
+                                    <option text="Instant">Instant</option>
+                                    <option text="Active Dry">Active Dry (Traditional)</option>
+                                    <option text="Wild/Natural">Wild/Natural</option>
+                                    <option text="Rapid Rise">Rapid Rise</option>
+                                    <option text="Pizza Yeast">"Pizza" Yeast</option>
+                                    <option text="Fresh">Fresh</option>
                                   </select>
                             </div>
                             <div class="col-4 mt-5">
@@ -71,13 +70,13 @@
                                 <label for="oil" class="form-label">Oil</label>
                                 <select class="form-select" id="oil" aria-label="Default select example" name="ingredients.oil.typeOfOil">
                                     <option selected>Select type of oil</option>
-                                    <option value="1">Olive</option>
-                                    <option value="2">Butter (melted)</option>
-                                    <option value="3">Butter (softened</option>
-                                    <option value="4">Canola</option>
-                                    <option value="5">Vegetable</option>
-                                    <option value="6">Margerine (list in "Other Ingredients"</option>
-                                    <option value="7">Other (list in "Other Ingredients"</option>
+                                    <option text="Olive">Olive</option>
+                                    <option text="Butter (melted)">Butter (melted)</option>
+                                    <option text="Butter (softened)">Butter (softened)</option>
+                                    <option text="Canola">Canola</option>
+                                    <option text="Vegetable">Vegetable</option>
+                                    <option text="Margerine">Margerine</option>
+                                    <option text="Other (list in 'Other Ingredients')">Other (list in "Other Ingredients")</option>
                                   </select>
                             </div>
                             <div class="col-4 mt-5">
@@ -86,28 +85,28 @@
                         </div>
                         <div class="row g-3 my-3">
                             <div class="col-3">
-                              <input type="number" class="form-control" placeholder="Salt (grams)" aria-label="First name" name="salt">
+                              <input type="number" class="form-control" placeholder="Salt (grams)" aria-label="First name"  name="ingredients.salt">
                             </div>
                             <div class="col-3">
-                                <input type="number" class="form-control" placeholder="Sugar (grams)" aria-label="First name" name="sugar">
+                                <input type="number" class="form-control" placeholder="Sugar (grams)" aria-label="First name" name="ingredients.sugar">
                               </div>
                               <div class="col-3">
-                                <input type="number" class="form-control" placeholder="Water (grams)" aria-label="First name" name="water">
+                                <input type="number" class="form-control" placeholder="Water (grams)" aria-label="First name" name="ingredients.water">
                               </div>
                               <div class="col-3">
-                                <input type="number" class="form-control" placeholder="Milk/Milk Sub (grams)" aria-label="First name" name="milk_msub">
+                                <input type="number" class="form-control" placeholder="Milk/Milk Sub (grams)" aria-label="First name" name="ingredients.milk_msub">
                               </div>
                         </div>
                         <div class="row g-3 mb-3">
                             <div class="col-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="text" id="flexCheckGluten" name="glutenFree">
+                                    <input class="form-check-input" type="checkbox" id="flexCheckGluten" name="glutenFree">
                                     <label class="form-check-label" for="flexCheckGluten">Gluten Free</label>
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="text" id="flexCheckDairy" name="dairyFree">
+                                    <input class="form-check-input" type="checkbox" id="flexCheckDairy" name="dairyFree">
                                     <label class="form-check-label" for="flexCheckDairy">Dairy Free</label>
                                 </div>
                             </div>

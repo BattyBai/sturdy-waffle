@@ -2,24 +2,45 @@
 <html lang="en">
 <head>
     <%- include('partials/head'); %> 
+    <link rel="stylesheet" href="/css/stylesheet.css">
 </head>
 <body>
     <header>
         <%- include('partials/header'); %> 
     </header>
-    <div class="container-xl">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="display-4" style="background-color: rgb(113, 158, 113); color: azure;"><%= recipe.name %>
+    <main id="showWindow">
+        <div class="container py-3">
+            <div class="card">
+              <div class="row ">
+                <div class="col-md-7 px-3">
+                  <div class="card-block px-6">
+                    <h2 class="card-title"><%= recipe.name%> </h2>
+                    <p class="card-text"><%= recipe.description %> </p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><%=recipe.ingredients.flour.amountOfFlour%>g <%=recipe.ingredients.flour.typeOfFlour%> flour</li>
+                        <li class="list-group-item"><%= recipe.ingredients.water %>g Water</li>
+                        <li class="list-group-item"><%= recipe.ingredients.salt %>g Salt </li>
+                        <li class="list-group-item"><%= recipe.ingredients.yeast.amountOfYeast %>g <%= recipe.ingredients.yeast.typeOfYeast%> yeast</li>
+                        <li class="list-group-item"><%=recipe.ingredients.oil.amountOfOil%>g <%= recipe.ingredients.oil.typeOfOil%> oil</li>
+                        <li class="list-group-item"><%=recipe.ingredients.sugar%>g Sugar</li>
+                        <li class="list-group-item"><%=recipe.ingredients.milk_msub%>g Milk/Milk Substitute</li>
+                        <li class="list-group-item"><%=recipe.otherIngredients%>Other Ingredients:</li>
+                      </ul>
+                    <br>
+                    <a href="#" class="mt-auto btn btn-primary  ">Read More</a>
+                  </div>
+                </div>
+                <!-- Carousel start -->
+                <div class="col-md-5">
+                  <img src="<%= recipe.img %> " style="width: 32rem;" loading="lazy" alt="<%- recipe.img %> " id="showImage" class="img-fluid">
+                </div>
+                <!-- End of carousel -->
+              </div>
             </div>
-            <div class="row row-cols-0">
-                <div class="col-6"style="background-color: rgb(113, 158, 113); color: azure;">test</div>
-                <div class="col-6" style="background-color: rgb(113, 158, 113); color: azure;">testie</div>
-            </div>
-            
-        </div>
-
-    </div>
+            <!-- End of card -->
+          
+          </div>
+    </main>
     <%- include('partials/body'); %>     
 </body>
 </html>
