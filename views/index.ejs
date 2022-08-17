@@ -28,7 +28,7 @@
             <div class="col">
               <div class="card h-100" stlye="width: 20rem;">
                 <a href="/bread/<%=recipe[i].id%> ">
-                  <div class="ratio ratio-21x9">
+                  <div class="ratio ratio-16x9">
                     <img src="<%=recipe[i].img %>" class="card-img-top" alt="...">
                   </div>
                 </a>
@@ -37,7 +37,8 @@
                   <p class="card-text">Total Time: <%=recipe[i].prepTime+recipe[i].bakeTime%> mins</p>
                 </div>
                 <div class="text-center">
-                  <a href="/bread/<%=recipe[i].id%>"><button type="button" class="btn btn-outline-secondary">View Recipe</button></a>
+                  <a href="/bread/<%=recipe[i].id%>"><button type="button" class="btn btn-outline-secondary">View This Knead</button></a>
+                  <a href="/bread/<%=recipe[i].id%>%>/edit" type="button" class="btn btn-outline-secondary">Edit This Knead</a>
                 </div>
               </div>
             </div>
@@ -50,6 +51,7 @@
         
 
     <%- include('partials/body'); %> 
+    <%- include('partials/footer'); %>
 
 </body>
 </html>

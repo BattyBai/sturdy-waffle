@@ -105,7 +105,7 @@ app.get('/bread/:id', (req, res) => {
 // *******************************************
 // ************EDIT/UPDATE ROUTING*************
 // *******************************************
-app.get('/:id/edit', (req, res)=>{
+app.get('/bread/:id/edit', (req, res)=>{
   Recipe.findById(req.params.id, (err, foundRecipe)=>{ 
       res.render(
       'edit.ejs',
@@ -113,12 +113,13 @@ app.get('/:id/edit', (req, res)=>{
         recipe: foundRecipe
       }
     );
+  
   });
 });
 
 app.put('/bread/:id', (req, res)=>{
   Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-      res.redirect('/');
+      res.redirect('/bread');
   });
 });
 

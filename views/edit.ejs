@@ -7,26 +7,136 @@
     <header>
         <%- include('partials/header'); %> 
     </header>
-    <h1>Edit Page</h1>
-    <div class="container">
-        <h1>Update Recipe</h1>
-        <form action="/bread/<%=recipe.id%>?_method=PUT" method="POST">
-            <input type="text" placeholder="Bread Name" name="name"><br>
-            <input type="number" placeholder="Prep Time" name="prepTime"><br>
-            <input type="number" placeholder="Bake Time" name="bakeTime"/><br>
-            <input type="text" placeholder="Flour Type" name="ingredients.flour.typeOfFlour"/><br>
-            <input type="number" placeholder="Flour Amount (grams)" name="ingredients.flour.amountOfFlour"/><br>
-            <input type="number" placeholder="Amount of Salt (grams)" name="salt"/><br>
-            <input type="text" placeholder="Type of Yeast" name="ingredients.yeast.typeOfYeast"/><br>
-            <input type="number" placeholder="Amount of Yeast (grams)" name="ingredients.yeast.amountOfYeast"/><br>
-            <input type="text" placeholder="Type of Oil" name="ingredients.oil.typeOfOil"/><br>
-            <input type="number" placeholder="Amount of Oil (grams)" name="ingredients.oil.amountOfOil"/><br>
-            <input type="text" placeholder="Other Ingredients" name="otherIngredients"/><br>
-            <input type="text" placeholder="Please Input Instructions Here" name="instructions"/><br>
-            <input type="text" placeholder="Please Input Image URL" name="img"/><br>
-        </form>
-        <a class="button" href="/bread">Back To TaskApp</a>
-    </div> 
-</body>
+    <main class="mt-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-5">
+                    <img class=" img-fluid"  src="<%= recipe.img %> "  alt="bread_recipe">
+                </div>
+                <div class="col-lg-7 my-4">
+                    <h1 class="mb-5 text-center">Knead To Edit It?</h1>
+                        <form action="/bread/<%=recipe.id%>?_method=PUT" method="POST">
+                            <div class="mb-3">
+                                <input type="text" class="form-control"  value="<%= recipe.name %> " name="name">
+                            </div>
+                            <div class="row g-3">
+                                <div class="col">
+                                <input type="number" class="form-control" value= "<%= recipe.prepTime %>" aria-label="First name" name="prepTime">
+                                </div>
+                                <div class="col">
+                                <input type="number" class="form-control" value= "<%= recipe.prepTime %>" aria-label="Last name" name="bakeTime">
+                                </div>
+                            </div>
+                            <h5 class="text-center my-4">Ingredients</h5>
+                            <div class="row g-3">
+                                <div class="col-8">
+                                    <label for="flour" class="text-left form-label">Flour</label>
+                                    <select class="form-select" id="flour" aria-label="Default select example"  name="ingredients.flour.typeOfFlour">
+                                        <option selected><%= recipe.ingredients.flour.typeOfFlour %></option>
+                                        <option text="All purpose">All Purpose</option>
+                                        <option text="Bread">Bread</option>
+                                        <option text="Whole wheat">Whole Wheat</option>
+                                        <option text="Self rising">Self Rising</option>
+                                        <option text="Cake">Cake</option>
+                                        <option text="00 Tipo">00 Tipo</option>
+                                        <option text="Almond">Almond</option>
+                                        <option text="Coconut">Coconut</option>
+                                        <option text="Oat">Oat</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 mt-5">
+                                    <input type="number" class="form-control" value="recipe.ingredients.flour.amountOfFlour"aria-label="First name" name="ingredients.flour.amountOfFlour">g
+                                </div>
+                            </div>
+                            <div class="row g-3 mt-2">
+                                <div class="col-8">
+                                    <label for="yeast" class="form-label">Yeast</label>
+                                    <select class="form-select" id="yeast" aria-label="Default select example" name="ingredients.yeast.typeOfYeast">
+                                        <option selected><%= recipe.ingredients.yeast.typeOfYeast %> </option>
+                                        <option text="Instant">Instant</option>
+                                        <option text="Active Dry">Active Dry (Traditional)</option>
+                                        <option text="Wild/Natural">Wild/Natural</option>
+                                        <option text="Rapid Rise">Rapid Rise</option>
+                                        <option text="Pizza Yeast">"Pizza" Yeast</option>
+                                        <option text="Fresh">Fresh</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 mt-5">
+                                    <input type="number" class="form-control" value="recipe.ingredients.yeast.amountOfYeast" aria-label="First name" name="ingredients.yeast.amountOfYeast">g
+                                </div>
+                            </div>
+                            <div class="row g-3 mt-2">
+                                <div class="col-8">
+                                    <label for="oil" class="form-label">Oil</label>
+                                    <select class="form-select" id="oil" aria-label="Default select example" name="ingredients.oil.typeOfOil">
+                                        <option selected><%= recipe.ingredients.oil.typeOfOil%> </option>
+                                        <option text="Olive">Olive</option>
+                                        <option text="Butter (melted)">Butter (melted)</option>
+                                        <option text="Butter (softened)">Butter (softened)</option>
+                                        <option text="Canola">Canola</option>
+                                        <option text="Vegetable">Vegetable</option>
+                                        <option text="Margerine">Margerine</option>
+                                        <option text="Other (list in 'Other Ingredients')">Other (list in "Other Ingredients")</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 mt-5">
+                                    <input type="number" class="form-control" value="recipe.ingredients.oil.amountOfOil" placeholder="Amount (grams)" aria-label="First name" name="ingredients.oil.amountOfOil">g
+                                </div>
+                            </div>
+                            <div class="row g-3 my-3">
+                                <div class="col-3">
+                                <input type="number" class="form-control" value="recipe.ingredients.salt" placeholder="Salt (grams)" aria-label="First name"  name="ingredients.salt">g
+                                </div>
+                                <div class="col-3">
+                                    <input type="number" class="form-control" value="recipe.ingredients.sugar" placeholder="Sugar (grams)" aria-label="First name" name="ingredients.sugar">g
+                                </div>
+                                <div class="col-3">
+                                    <input type="number" class="form-control" value="recipe.ingredients.water" placeholder="Water (grams)" aria-label="First name" name="ingredients.water">g
+                                </div>
+                                <div class="col-3">
+                                    <input type="number" class="form-control" value="recipe.ingredients.mimlk_msub" placeholder="Milk/Milk Sub (grams)" aria-label="First name" name="ingredients.milk_msub">g
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="flexCheckGluten" name="glutenFree"
+                                        <% if (recipe.glutenFree === true){ %>
+                                            checked
+                                            <% } %>  
+                                            >
+                                        <label class="form-check-label" for="flexCheckGluten">Gluten Free</label>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="flexCheckDairy" name="dairyFree"
+                                        <% if (recipe.dairyFree === true){ %>
+                                            checked
+                                            <% } %>  
+                                            >
+                                        <label class="form-check-label" for="flexCheckDairy">Dairy Free</label>
+                                    </div>
+                                </div>
+                                <div class=" col-6">
+                                    <textarea class="form-control" placeholder="Additional Ingredients (seperate by comma)" name="otherIngrdients" rows="1"></textarea>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control form-control" type="text" name="img"  placeholder="Image URL here" aria-label=".form-control-lg example">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" placeholder="Input baking instructions here (text field may be extended)" name="instructions" rows="5"></textarea>
+                            </div>
+                            <input type="submit"  class="btn btn-outline-primary" value="Submit Changes"/>
+                            <input type="reset"  class="btn btn-outline-primary" value="Reset Form"/>
+                
+                        </form>
+                    <a class="button" href="/bread">Back To KneadIt</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('partials/body'); %>
 </body>
 </html>
