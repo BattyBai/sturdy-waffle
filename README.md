@@ -1,6 +1,6 @@
 # Project 2 - CRUD APP
 
-#Tech Used
+# Tech Used
 - This project used the following frameworks and technologhies:
     *JavaScript
     *CSS
@@ -8,5 +8,10 @@
     *BootStrap
     *Express
     *MongoDB(Atlas)
+    Mognoose
+    *dotENV
+    *EJS
+
+#
     
 
