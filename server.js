@@ -53,6 +53,12 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // *******************************************
 // *************INDEX ROUTING*****************
 // *******************************************
+app.get('/', (req, res) => {
+  res.redirect(
+    '/bread'
+  )
+});
+
 app.get('/bread', (req, res) => {
   Recipe.find({}, (err, allRecipes) => {
     res.render(
@@ -151,3 +157,5 @@ app.get('/bread' , (req, res) => {
 //Listener
 //___________________
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
+
+
