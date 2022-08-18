@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const recipeSchema = new mongoose.Schema({
     name:{type: String, required: true},
     description: String,
-    prepTime: {type: Number, required: true},
-    bakeTime: {type: Number, required: true},
+    prepTime: {type: Number},
+    bakeTime: {type: Number},
     ingredients: {
         flour:  {
             typeOfFlour: String,

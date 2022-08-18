@@ -118,6 +118,16 @@ app.get('/bread/:id/edit', (req, res)=>{
 });
 
 app.put('/bread/:id', (req, res)=>{
+  if(req.body.dairyFree === 'on'){
+    req.body.dairyFree = true;
+} else {
+    req.body.dairyFree = false;
+};
+  if(req.body.glutenFree === 'on'){
+    req.body.glutenFree = true;
+  } else {
+    req.body.glutenFree = false;
+  };
   Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
       res.redirect('/bread');
   });

@@ -8,44 +8,104 @@
     <header>
         <%- include('partials/header'); %> 
     </header>
-    <main id="showWindow">
-        <div class="container py-3">
-          <div class="title h1 text-center">
-            <div class="card overflow-hidden"></div>
-              <div class="row ">
-                <div class="col-md-7 px-3 overflow-auto">
-                  <div class="card-block px-6">
-                    <h2 class="card-title"><%= recipe.name%> </h2>
-                    <p class="card-text"><%= recipe.description %> </p>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><%=recipe.ingredients.flour.amountOfFlour%>g <%=recipe.ingredients.flour.typeOfFlour%> flour</li>
-                        <li class="list-group-item"><%= recipe.ingredients.water %>g Water</li>
-                        <li class="list-group-item"><%= recipe.ingredients.salt %>g Salt </li>
-                        <li class="list-group-item"><%= recipe.ingredients.yeast.amountOfYeast %>g <%= recipe.ingredients.yeast.typeOfYeast%> yeast</li>
-                        <li class="list-group-item"><%=recipe.ingredients.oil.amountOfOil%>g <%= recipe.ingredients.oil.typeOfOil%> oil</li>
-                        <li class="list-group-item"><%=recipe.ingredients.sugar%>g Sugar</li>
-                        <li class="list-group-item"><%=recipe.ingredients.milk_msub%>g Milk/Milk Substitute</li>
-                        <li class="list-group-item"><%=recipe.otherIngredients%>Other Ingredients:</li>
-                      </ul>
-                    <br>
-                   <form action="/bread/<%=recipe.id %>?_method=DELETE" method="POST">
-                        <input type="submit" class="mt-auto btn btn-primary  " value="DELETE"> 
-                    </form>
-                  </div>
-                </div>
-                
-                <div class="col-5">
-                  <img src="<%= recipe.img %> " style="width: 32rem;" loading="lazy" alt="<%- recipe.img %> " id="showImage" class="img-fluid">
-                </div>
-               
+    <main class="px-3"id="showWindow" style="height:75vh;">
+      <div class="row">
+        <div class="col-12 col-md-4 d-inline-flex">
+          <img src="<%= recipe.img %>" class="img-fluid align-self-center" style="top: 20px;" alt="<%- recipe.name %>" loading="lazy">
+        </div>
+        <div class="col-12 col-md-8">
+          <div class="row pt-4">
+            <div class="col-6">
+              <div class="row">
+                <div class="col-6"><h1><%- recipe.name %></h1></div>
               </div>
+              <div class="row px-3 overflow-scroll" style="height:15vh">
+              <%- recipe.description %>
             </div>
-            <!-- End of card -->
-          
+            <h4 class="pt-2">Ingredients</h4>
+              <div class="mb-3 overflow-auto" style="height:35vh;">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <%=recipe.ingredients.flour.amountOfFlour%>g <%=recipe.ingredients.flour.typeOfFlour%> flour
+                </li>
+                
+                <li class="list-group-item">
+                  <%= recipe.ingredients.water %>g Water
+                </li>
+      
+      
+                <% if (recipe.ingredients.salt === null) { %> 
+                  <% } else { %>
+                    <li class="list-group-item">
+                      <%= recipe.ingredients.salt %>g Salt 
+                    </li>
+                <% } %>
+               
+      
+                <% if (recipe.ingredients.yeast.amountOfYeast === null) { %> 
+                  <% } else { %>
+                  <li class="list-group-item">
+                    <%= recipe.ingredients.yeast.amountOfYeast %>g<%= recipe.ingredients.yeast.typeOfYeast%> yeast
+                  </li>
+                <% } %>
+      
+      
+                <% if (recipe.ingredients.oil.amountOfOil === null) { %> 
+                  <% } else { %>
+                    <li class="list-group-item">
+                      <%=recipe.ingredients.oil.amountOfOil%>g <%= recipe.ingredients.oil.typeOfOil%> oil
+                    </li>
+                <% } %>
+               
+      
+                <% if (recipe.ingredients.sugar === null) { %> 
+                  <% } else { %>
+                    <li class="list-group-item">
+                      <%=recipe.ingredients.sugar%>g Sugar
+                    </li>
+                <% } %>
+             
+      
+                <% if (recipe.ingredients.milk_msub === null) { %> 
+                  <% } else { %>
+                    <li class="list-group-item">
+                      <%=recipe.ingredients.milk_msub%>g Milk/Milk Substitute
+                    </li>
+                <% } %>
+                
+      
+                <li class="list-group-item">
+                  <%=recipe.otherIngredients%>Other Ingredients:
+                </li>
+              </ul>
+            </div>
+              <div class="row">
+                <div class="col-6">
+                  <a href="/bread/<%=recipe.id%>%>/edit" type="button" class="mt-auto btn btn-primary">Edit This Knead</a>
+                </div>
+              <div class="col-6">
+                <form action="/bread/<%=recipe.id %>?_method=DELETE" method="POST">
+                  <input type="submit" class="mt-auto btn btn-danger" value="Delete This Knead"> 
+              </div>
+              </form>
+            </div> 
+            </div>
+            <div class="col-6 ">
+              <div class="row">
+                <h2>Instructions</h2>
+              </div>
+             <div class="overflow-auto"  style="height:64vh">
+                <%= recipe.instructions %> 
+            </div>
+            </div>
           </div>
         </div>
+      </div>
     </main>
     <%- include('partials/body'); %>  
     <%- include('partials/footer'); %>    
 </body>
 </html>
+
+
+
